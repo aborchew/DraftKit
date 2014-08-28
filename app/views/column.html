@@ -1,0 +1,143 @@
+<div>
+
+  <tabset>
+
+    <tab heading="Available" active="tabs.available.active">
+
+      <div class="tabContent">
+
+        <ul class="list-group player-list undrafted-list" ng-class="{'expanded': playerListExpanded}" ng-if="tabs.available.active">
+
+          <li ng-class="player.position" class="list-group-item player" ng-repeat="player in rankings | orderBy:comparator:reverse">
+            <div class="col2" ><span tooltip-placement="right" tooltip="B: {{ player.bestRank }}, W: {{ player.worstRank }}, StD: {{ player.stdDev | number:2 }}">{{ player.aveRank | number:2 }}</span></div>
+            <div class="col5 ellipsis">
+              <a ng-href="https://www.google.com/#q={{player.name}}" target="_blank">
+                <i class="glyphicon glyphicon-share"></i>
+              </a>
+              <span tooltip="{{ player.name }}">{{ player.name.split(' ')[0].substring(0,1)}}. {{player.name.split(' ')[1] }}</span>
+            </div>
+            <div class="col3 highlight">{{ player.position }} {{ player.team }} ({{ player.byeWeek }})</div>
+            <div class="col1">
+              <a href="" ng-click="favorite()" target="_blank">
+                <i class="glyphicon" ng-class="{'glyphicon-star': player.favorite, 'glyphicon-star-empty': !player.favorite}"></i>
+              </a>
+            </div>
+            <div class="col1">
+              <a href="" class="text-primary" ng-click="draft()"><i class="glyphicon glyphicon-plus"></i></a>
+            </div>
+          </li>
+
+        </ul>
+
+      </div>
+
+    </tab>
+
+    <tab heading="Drafted" active="tabs.drafted.active">
+
+      <div class="tabContent">
+
+        <p class="center-block text-center" ng-if="!drafted.length"><br/><br>This is where players will appear once they have been drafted.</p>
+
+        <ul class="list-group player-list drafted-list" ui-sortable ng-model="drafted" ng-if="tabs.drafted.active && drafted.length">
+
+          <li ng-class="player.position" class="list-group-item player" ng-repeat="player in drafted">
+            <div class="col2">{{ getRound(player.draftPosition) + '.' + (player.draftPosition % setup.teams + 1) }}</div>
+            <div class="col4 ellipsis">
+              <a ng-href="https://www.google.com/#q={{ player.name }}" target="_blank">
+                <i class="glyphicon glyphicon-share"></i>
+              </a>&nbsp;
+              {{ player.name.split(' ')[0].substring(0,1) }}. {{ player.name.split(' ')[1] }}
+            </div>
+            <div class="col4">
+              <span class="dropdown">
+                <a href="" class="dropdown-toggle ellipsis">
+                  <i class="caret"></i>&nbsp;{{ getFantasyTeam().name }}
+                </a>
+                <ul class="dropdown-menu">
+                 <li ng-repeat="team in teams" ng-class="{'active': player.fantasyTeam == team.id}">
+                    <a href="" ng-click="player.fantasyTeam = team.id" dropdown-toggle>
+                      <i class="glyphicon" ng-class="{'glyphicon-arrow-right': player.fantasyTeam != team.id, 'glyphicon-ok': player.fantasyTeam == team.id}"></i>&nbsp;{{ team.name }}</a>
+                  </li>
+                  <li class="divider"></li>
+                  <li><a href="" ng-click="undraft()"><i class="glyphicon glyphicon-arrow-left"></i>&nbsp;Undraft Player</a></li>
+                </ul>
+              </span>
+            </div>
+            <div class="col2 highlight">{{ player.position }} {{ player.team }}</div>
+          </li>
+
+      </ul>
+
+      </div>
+
+    </tab>
+
+    <tab active="tabs.teams.active" heading="Teams">
+
+      <div class="tabContent pad10">
+
+        <div ng-repeat="team in teams" ng-if="team.id == tabs.teams.current">
+          <button class="btn btn-xs btn-block btn-primary" ng-click="tabs.teams.current = 'index'">
+            <i class="glyphicon glyphicon-arrow-left"></i>&nbsp;Back to team list
+          </button>
+          <div ng-include="'views/teamView.html'" class="teamView" ng-controller="TeamviewCtrl"></div>
+        </div>
+
+        <div ng-if="tabs.teams.current == 'index'" ng-if="tabs.teams.active">
+          <ul class="list-group">
+            <li class="list-group-item" ng-repeat="team in teams">
+              <a href="" ng-click="tabs.teams.current = team.id" class="center-block">
+                <strong>{{ team.name }}</strong>
+                <br/>
+                <span class="label label-default">QB: {{ getRoster('QB').length }}</span>
+                <span class="label label-default">WR: {{ getRoster('WR').length }}</span>
+                <span class="label label-default">RB: {{ getRoster('RB').length }}</span>
+                <span class="label label-default">TE: {{ getRoster('TE').length }}</span>
+                <span class="label label-default">DST: {{ getRoster('DST').length }}</span>
+                <span class="label label-default">K: {{ getRoster('K').length }}</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+    </tab>
+
+    <tab heading="Starred" active="tabs.starred.active">
+
+      <div class="tabContent">
+
+        <p class="center-block text-center" ng-if="!(rankings | filter:{favorite: true}).length"><br/><br>This is where your starred players will appear.</p>
+
+        <ul class="list-group player-list starred-list" ui-sortable ng-model="rankings" ng-if="tabs.starred.active && (rankings | filter:{favorite: true}).length">
+
+          <li ng-class="player.position" class="list-group-item player" ng-repeat="player in rankings | orderBy:comparator:reverse | filter:{favorite: true}">
+            <div class="col2" ><span tooltip-placement="right" tooltip="B: {{ player.bestRank }}, W: {{ player.worstRank }}, StD: {{ player.stdDev | number:2 }}">{{ player.aveRank | number:2 }}</span></div>
+            <div class="col5 ellipsis">
+              <a ng-href="https://www.google.com/#q={{player.name}}" target="_blank">
+                <i class="glyphicon glyphicon-share"></i>
+              </a>
+              <span tooltip="{{ player.name }}">{{ player.name.split(' ')[0].substring(0,1)}}. {{player.name.split(' ')[1] }}</span>
+            </div>
+            <div class="col3 highlight">{{ player.position }} {{ player.team }} ({{ player.byeWeek }})</div>
+            <div class="col1">
+              <a href="" ng-click="favorite()" target="_blank">
+                <i class="glyphicon" ng-class="{'glyphicon-star': player.favorite, 'glyphicon-star-empty': !player.favorite}"></i>
+              </a>
+            </div>
+            <div class="col1">
+              <a href="" class="text-primary" ng-click="draft()"><i class="glyphicon glyphicon-plus"></i></a>
+            </div>
+          </li>
+
+        </ul>
+
+      </div>
+
+    </tab>
+
+  </tabset>
+
+</div>

@@ -1,0 +1,196 @@
+{
+  "NFLTeams": [
+    {
+      "code": "ARI",
+      "fullName": "Arizona Cardinals",
+      "shortName": "Arizona",
+      "byeWeek": "4"
+    },
+    {
+      "code": "ATL",
+      "fullName": "Atlanta Falcons",
+      "shortName": "Atlanta",
+      "byeWeek": "9"
+    },
+    {
+      "code": "BAL",
+      "fullName": "Baltimore Ravens",
+      "shortName": "Baltimore",
+      "byeWeek": "11"
+    },
+    {
+      "code": "BUF",
+      "fullName": "Buffalo Bills",
+      "shortName": "Buffalo",
+      "byeWeek": "9"
+    },
+    {
+      "code": "CAR",
+      "fullName": "Carolina Panthers",
+      "shortName": "Carolina",
+      "byeWeek": "12"
+    },
+    {
+      "code": "CHI",
+      "fullName": "Chicago Bears",
+      "shortName": "Chicago",
+      "byeWeek": "9"
+    },
+    {
+      "code": "CIN",
+      "fullName": "Cincinnati Bengals",
+      "shortName": "Cincinnati",
+      "byeWeek": "4"
+    },
+    {
+      "code": "CLE",
+      "fullName": "Cleveland Browns",
+      "shortName": "Cleveland",
+      "byeWeek": "4"
+    },
+    {
+      "code": "DAL",
+      "fullName": "Dallas Cowboys",
+      "shortName": "Dallas",
+      "byeWeek": "11"
+    },
+    {
+      "code": "DEN",
+      "fullName": "Denver Broncos",
+      "shortName": "Denver",
+      "byeWeek": "4"
+    },
+    {
+      "code": "DET",
+      "fullName": "Detroit Lions",
+      "shortName": "Detroit",
+      "byeWeek": "9"
+    },
+    {
+      "code": "GB",
+      "fullName": "Green Bay Packers",
+      "shortName": "Green Bay",
+      "byeWeek": "9"
+    },
+    {
+      "code": "HOU",
+      "fullName": "Houston Texans",
+      "shortName": "Houston",
+      "byeWeek": "10"
+    },
+    {
+      "code": "IND",
+      "fullName": "Indianapolis Colts",
+      "shortName": "Indianapolis",
+      "byeWeek": "10"
+    },
+    {
+      "code": "JAC",
+      "fullName": "Jacksonville Jaguars",
+      "shortName": "Jacksonville",
+      "byeWeek": "11"
+    },
+    {
+      "code": "KC",
+      "fullName": "Kansas City Chiefs",
+      "shortName": "Kansas City",
+      "byeWeek": "6"
+    },
+    {
+      "code": "MIA",
+      "fullName": "Miami Dolphins",
+      "shortName": "Miami",
+      "byeWeek": "5"
+    },
+    {
+      "code": "MIN",
+      "fullName": "Minnesota Vikings",
+      "shortName": "Minnesota",
+      "byeWeek": "10"
+    },
+    {
+      "code": "NYG",
+      "fullName": "N.Y. Giants",
+      "shortName": "N.Y. Giants",
+      "byeWeek": "8"
+    },
+    {
+      "code": "NYJ",
+      "fullName": "N.Y. Jets",
+      "shortName": "N.Y. Jets",
+      "byeWeek": "11"
+    },
+    {
+      "code": "NE",
+      "fullName": "New England Patriots",
+      "shortName": "New England",
+      "byeWeek": "10"
+    },
+    {
+      "code": "NO",
+      "fullName": "New Orleans Saints",
+      "shortName": "New Orleans",
+      "byeWeek": "6"
+    },
+    {
+      "code": "OAK",
+      "fullName": "Oakland Raiders",
+      "shortName": "Oakland",
+      "byeWeek": "5"
+    },
+    {
+      "code": "PHI",
+      "fullName": "Philadelphia Eagles",
+      "shortName": "Philadelphia",
+      "byeWeek": "7"
+    },
+    {
+      "code": "PIT",
+      "fullName": "Pittsburgh Steelers",
+      "shortName": "Pittsburgh",
+      "byeWeek": "12"
+    },
+    {
+      "code": "SD",
+      "fullName": "San Diego Chargers",
+      "shortName": "San Diego",
+      "byeWeek": "10"
+    },
+    {
+      "code": "SF",
+      "fullName": "San Francisco 49ers",
+      "shortName": "San Francisco",
+      "byeWeek": "8"
+    },
+    {
+      "code": "SEA",
+      "fullName": "Seattle Seahawks",
+      "shortName": "Seattle",
+      "byeWeek": "4"
+    },
+    {
+      "code": "STL",
+      "fullName": "St. Louis Rams",
+      "shortName": "St. Louis",
+      "byeWeek": "4"
+    },
+    {
+      "code": "TB",
+      "fullName": "Tampa Bay Buccaneers",
+      "shortName": "Tampa Bay",
+      "byeWeek": "7"
+    },
+    {
+      "code": "TEN",
+      "fullName": "Tennessee Titans",
+      "shortName": "Tennessee",
+      "byeWeek": "9"
+    },
+    {
+      "code": "WAS",
+      "fullName": "Washington Redskins",
+      "shortName": "Washington",
+      "byeWeek": "10"
+    }
+  ]
+}

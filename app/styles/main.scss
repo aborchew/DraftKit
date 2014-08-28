@@ -1,0 +1,261 @@
+@import 'variables';
+$icon-font-path: "/bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/";
+@import 'bootstrap-sass-official/vendor/assets/stylesheets/bootstrap';
+@import "../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap.scss";
+
+@mixin linear-gradient($fromColor, $toColor) {
+  background-color: $toColor; /* Fallback Color */
+  background-image: -webkit-gradient(linear, left top, left bottom, from($fromColor), to($toColor)); /* Saf4+, Chrome */
+  background-image: -webkit-linear-gradient(top, $fromColor, $toColor); /* Chrome 10+, Saf5.1+, iOS 5+ */
+  background-image:    -moz-linear-gradient(top, $fromColor, $toColor); /* FF3.6 */
+  background-image:     -ms-linear-gradient(top, $fromColor, $toColor); /* IE10 */
+  background-image:      -o-linear-gradient(top, $fromColor, $toColor); /* Opera 11.10+ */
+  background-image:         linear-gradient(top, $fromColor, $toColor);
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#{$fromColor}', EndColorStr='#{$toColor}');
+}
+
+.col1 {
+  @extend .col-lg-1;
+  @extend .col-md-1;
+  @extend .col-sm-1;
+  @extend .col-xs-1;
+}
+
+.col2 {
+  @extend .col-lg-2;
+  @extend .col-md-2;
+  @extend .col-sm-2;
+  @extend .col-xs-2;
+}
+
+.col3 {
+  @extend .col-lg-3;
+  @extend .col-md-3;
+  @extend .col-sm-3;
+  @extend .col-xs-3;
+}
+
+.col4 {
+  @extend .col-lg-4;
+  @extend .col-md-4;
+  @extend .col-sm-4;
+  @extend .col-xs-4;
+}
+
+.col5 {
+  @extend .col-lg-5;
+  @extend .col-md-5;
+  @extend .col-sm-5;
+  @extend .col-xs-5;
+}
+
+.col6 {
+  @extend .col-lg-6;
+  @extend .col-md-6;
+  @extend .col-sm-6;
+  @extend .col-xs-6;
+}
+
+.col12 {
+  @extend .col-lg-6;
+  @extend .col-md-6;
+  @extend .col-sm-6;
+  @extend .col-xs-6;
+}
+
+a:hover {
+  text-decoration: none !important;
+}
+
+.pad10 {
+  padding: 10px;
+}
+
+.teamView {
+
+  font-size: 90%;
+
+  .table {
+
+    th, td {
+
+      padding-top: 2px;
+      padding-bottom: 2px;
+
+      a {
+        color: $gray;
+      }
+
+      a:hover {
+        color: $gray-darker;
+      }
+
+    }
+
+  }
+
+}
+
+.container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  .fullPane {
+    @extend .col-lg-12;
+    @extend .col-md-12;
+    @extend .col-sm-12;
+    @extend .col-xs-12;
+  }
+
+  .halfPane {
+    @extend .col-lg-6;
+    @extend .col-md-6;
+    @extend .col-sm-6;
+    @extend .col-xs-6;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    bottom: 0;
+
+    .tabContent {
+
+      position: absolute;
+      top: 42px;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      overflow-y: scroll;
+
+    }
+
+  }
+
+  .halfPane:nth-last-of-type(2) {
+    position: absolute;
+    left: 0;
+  }
+
+}
+
+.player-list {
+
+  @extend .col-lg-12;
+  @extend .col-md-12;
+  @extend .col-sm-12;
+  @extend .col-xs-12;
+
+  .list-group-item {
+
+    white-space: nowrap;
+    transition: all 150ms;
+    font-size: 12px;
+    padding-right: 0;
+    padding-left: 5px;
+    min-height: 40px;
+    background: $gray-lighter;
+    font-weight: bold;
+
+    .ellipsis {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: block;
+    }
+
+    a {
+      color: $gray;
+    }
+
+    a:hover {
+      color: $gray-darker;
+    }
+
+  }
+
+  .list-group-item.player:hover {
+
+  }
+
+  .list-group-item.RB {
+
+    border-right: 5px solid $RB;
+
+    .highlight {
+      color: $RB;
+      font-weight: bold;
+    }
+
+  }
+
+  .list-group-item.WR {
+
+    border-right: 5px solid $WR;
+
+    .highlight {
+      color: $WR;
+      font-weight: bold;
+    }
+
+  }
+
+  .list-group-item.TE {
+
+    border-right: 5px solid $TE;
+
+    .highlight {
+      color: $TE;
+      font-weight: bold;
+    }
+
+  }
+
+  .list-group-item.QB {
+
+    border-right: 5px solid $QB;
+
+    .highlight {
+      color: $QB;
+      font-weight: bold;
+    }
+
+  }
+
+  .list-group-item.DST {
+
+    border-right: 5px solid $DST;
+
+    .highlight {
+      color: $DST;
+      font-weight: bold;
+    }
+
+  }
+
+  .list-group-item.K {
+
+    border-right: 5px solid $K;
+
+    .highlight {
+      color: $K;
+      font-weight: bold;
+    }
+
+  }
+
+}
+
+.drafted-list,
+.starred-list {
+
+  .list-group-item.player:hover {
+    cursor: grab;
+  }
+
+  .list-group-item.player:active {
+    cursor: grabbing;
+  }
+
+}

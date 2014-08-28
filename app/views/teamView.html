@@ -1,0 +1,27 @@
+<h4>{{ team.name }}<small class="pull-right text-info">Pick Number: {{ team.id + 1 }}</small></h4>
+
+<table class="table">
+  <tbody>
+
+    <tr ng-repeat="spot in roster">
+      <th>{{ spot.pos }}</th>
+      <td>
+        <strong ng-if="spot.player">
+          <a ng-href="https://www.google.com/#q={{spot.player.name}}" target="_blank">
+            <i class="glyphicon glyphicon-share"></i>
+          </a>{{ spot.player.name }}
+        </strong>
+        <br/>
+        <small ng-if="spot.player">{{ spot.player.position }}&nbsp;&nbsp;&nbsp;{{ spot.player.team }}&nbsp;&nbsp;&nbsp;Bye: {{ spot.player.byeWeek }}</small>
+      </td>
+      <td ng-if="spot.player" class="text-right">
+        <small>
+          {{ getRound(spot.player.draftPosition) + '.' + (spot.player.draftPosition % setup.teams + 1)  + ' (' + (spot.player.draftPosition + 1) + ')'}}
+        </small><br/>
+        <small ng-if="spot.player" class="text-muted">ADP: {{ spot.player.adp }}</small>
+      </td>
+      <td ng-if="!spot.player">&nbsp;</td>
+    </tr>
+
+  </tbody>
+</table>
